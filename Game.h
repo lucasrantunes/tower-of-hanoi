@@ -1,11 +1,12 @@
 #pragma once
+#include <iostream>
 namespace hanoi{
     class Game
     {
     private:
-        /* data */
+        int difficulty_;
+        std::vector<Stack> stacks_;
     public:
-        Game(/* args */);
-        ~Game();
+        Game(int difficulty);
     };
 }
