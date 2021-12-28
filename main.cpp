@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Game.h"
 using std::cout;
 using std::cin;
 using std::endl;
@@ -15,9 +16,10 @@ int main(){
         cin >> userInput;
         switch (userInput)
         {
-        case 1:
-            /* code */
+        case 1:{
+            hanoi::Game g(1);
             break;
+        }
         case 2:
             /* code */
             break;

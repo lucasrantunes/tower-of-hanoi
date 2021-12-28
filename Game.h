@@ -1,5 +1,6 @@
 #pragma once
-#include <iostream>
+#include "Stack.h"
+#include <vector>
 namespace hanoi{
     class Game
     {

@@ -8,6 +8,12 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "-g",
+                "Disk.cpp",
+                "-g",
+                "Stack.cpp",
+                "-g",
+                "Game.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

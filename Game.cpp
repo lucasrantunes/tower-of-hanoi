@@ -3,6 +3,7 @@
 #include <vector>
 namespace hanoi{
     Game::Game(int difficulty){
+        difficulty_ = difficulty;
         switch (difficulty)
         {
         case 1:{
