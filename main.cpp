@@ -9,7 +9,7 @@ int main(){
     cout << "2) Ranking" << endl;
     cout << "3) Exit" << endl;
 
-    int userInput;
+    int userInput = 0;
     do
     {
         cin >> userInput;
