@@ -1,12 +1,16 @@
 #include "Stack.h"
+#include <vector>
+#include <iostream>
 #pragma once
 namespace hanoi{
     class Controller
     {
     private:
-        Stack &current_stack_;
-        Stack &target_stack_;
+        std::vector<Stack> *stacks_;
     public:
-        Controller(Stack &current_stack, Stack &target_stack);
+        Controller(std::vector<Stack> &stacks);
+        Disk & peekTop(Stack &stack);
+        int moveDisk(int currentStack, int targetStack);
+        void getCommand();
     };
 }

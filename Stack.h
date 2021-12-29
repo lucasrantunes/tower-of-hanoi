@@ -6,10 +6,12 @@ namespace hanoi{
         {
         private:
             /* data */
-            int amount_ = 0;
+            int amount_;
             std::vector<Disk> disks_;
         public:
             Stack(/* args */);
             Stack(int amount);
+            int size();
+            void push_back(Disk &disk);
     };
 }

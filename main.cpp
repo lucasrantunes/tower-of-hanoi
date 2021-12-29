@@ -5,10 +5,11 @@ using std::cin;
 using std::endl;
 using std::string;
 int main(){
+    mainMenu:
     cout << "Choose one option:" << endl;
     cout << "1) Start Game" << endl;
     cout << "2) Ranking" << endl;
-    cout << "3) Exit" << endl;
+    cout << "3) Exit\n" << endl;
 
     int userInput = 0;
     do
@@ -18,6 +19,7 @@ int main(){
         {
         case 1:{
             hanoi::Game g(1);
+            goto mainMenu;
             break;
         }
         case 2:
@@ -27,7 +29,7 @@ int main(){
             return 0;
             break;
         default:
-            cout << "Insert a valid option." << endl;
+            cout << "Insert a valid option.\n" << endl;
             break;
         }
     } while (userInput > 3 || userInput < 1);
