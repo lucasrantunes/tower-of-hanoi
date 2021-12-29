@@ -8,9 +8,8 @@ namespace hanoi{
     private:
         std::vector<Stack> *stacks_;
     public:
-        Controller(std::vector<Stack> &stacks);
-        Disk & peekTop(Stack &stack);
-        int moveDisk(int currentStack, int targetStack);
+        Controller(std::vector<Stack> *stacks);
+        void moveDisk(int currentStack, int targetStack);
         void getCommand();
     };
 }

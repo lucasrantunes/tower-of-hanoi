@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include <iostream>
 namespace hanoi{
     Stack::Stack() : amount_(0){}
     Stack::Stack(int amount) : amount_(amount){
@@ -10,10 +11,20 @@ namespace hanoi{
         }
     }
     int Stack::size(){
-        return amount_;
+        return disks_.size();
     }
 
     void Stack::push_back(Disk &disk){
         disks_.push_back(disk);
+    }
+
+    Disk & Stack::peekTop(){
+        return disks_[disks_.size() - 1];
+    }
+
+    Disk Stack::removeTop() {
+        Disk disk = peekTop();
+        disks_.pop_back();
+        return disk;
     }
 }

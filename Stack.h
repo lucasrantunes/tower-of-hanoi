@@ -13,5 +13,7 @@ namespace hanoi{
             Stack(int amount);
             int size();
             void push_back(Disk &disk);
+            Disk & peekTop();
+            Disk removeTop();
     };
 }
