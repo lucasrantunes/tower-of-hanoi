@@ -5,10 +5,10 @@
 namespace hanoi{
     Controller::Controller(std::vector<Stack> *stacks){
         stacks_ = stacks;
-        std::cout << "Just type 666 if you want to go back to the main menu.\n" << std::endl;
+        std::cout << "Insert the moviments or type 666 to go back to the main menu." << std::endl;
         getCommand();
     }
-
+    
     void Controller::moveDisk(int currentStack, int targetStack){
         Disk disk = (*stacks_)[currentStack].removeTop();
         (*stacks_)[targetStack].push_back(disk);
@@ -16,19 +16,33 @@ namespace hanoi{
 
     void Controller::getCommand(){
         command:
-        std::cout << "Insert the moviment: " << std::endl;
-        int currentStack;
-        std::cin >> currentStack;
-        int targetStack;
-        std::cin >> targetStack;    
-        if (targetStack == 666 || currentStack == 666)
+        int currentStack = 0;
+        do
         {
-            return;
-        }
+            std::cout << "Actual stack (1-3): ";
+            std::cin >> currentStack;
+            if (currentStack == 666)
+            {
+                return;
+            }
+        } while ( !(currentStack >= 1 && currentStack <= 3) );
+
+        int targetStack;
+        do
+        {
+            std::cout << "Target stack (1-3): ";
+            std::cin >> targetStack;  
+            if (targetStack == 666)
+            {
+                return;
+            }
+        } while ( !(targetStack >= 1 && targetStack <= 3) );
+        
+
         moveDisk(currentStack - 1, targetStack - 1);    
-        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[0].size();
+        /*std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[0].size();
         std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[1].size();
-        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[2].size() << std::endl;
+        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[2].size() << std::endl;*/
         //precisa mostrar quais os tamanhos dos discos de cada pilha
         goto command;
     }
