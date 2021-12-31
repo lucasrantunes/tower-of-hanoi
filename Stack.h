@@ -6,7 +6,7 @@ namespace hanoi{
         {
         private:
             /* data */
-            int amount_;
+            unsigned int amount_;
             std::vector<Disk> disks_;
         public:
             Stack(/* args */);

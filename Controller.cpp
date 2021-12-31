@@ -9,9 +9,30 @@ namespace hanoi{
         getCommand();
     }
     
+    void Controller::legalMove(int currentStack, int targetStack){
+        //  check if actual stack is not empty:
+        if (stacks_->at(currentStack).size() > 0)
+        {
+            // check if target stack is not empty
+            if (stacks_->at(targetStack).size() > 0)
+            {
+                if (stacks_->at(targetStack).peekTop().width_ > stacks_->at(currentStack).peekTop().width_)
+                {
+                    moveDisk(currentStack, targetStack);
+                }else{
+                    std::cout << "Invalid move: attempt to put a large disk on top of a small one." << std::endl;
+                }
+            }else{
+                moveDisk(currentStack, targetStack);
+            }
+        }else{
+            std::cout << "Invalid move: actual stack is empty." << std::endl;
+        }
+    }
+
     void Controller::moveDisk(int currentStack, int targetStack){
-        Disk disk = (*stacks_)[currentStack].removeTop();
-        (*stacks_)[targetStack].push_back(disk);
+        Disk disk = stacks_->at(currentStack).removeTop();
+        stacks_->at(targetStack).push_back(disk);
     }
 
     void Controller::getCommand(){
@@ -39,10 +60,10 @@ namespace hanoi{
         } while ( !(targetStack >= 1 && targetStack <= 3) );
         
 
-        moveDisk(currentStack - 1, targetStack - 1);    
-        /*std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[0].size();
+        legalMove(currentStack - 1, targetStack - 1);    
+        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[0].size();
         std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[1].size();
-        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[2].size() << std::endl;*/
+        std::cout << std::left << std::setw(6) << std::setfill(' ') << (*stacks_)[2].size() << std::endl;
         //precisa mostrar quais os tamanhos dos discos de cada pilha
         goto command;
     }
