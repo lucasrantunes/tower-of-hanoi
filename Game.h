@@ -1,5 +1,6 @@
 #pragma once
 #include "Stack.h"
+#include "Controller.h"
 #include <vector>
 namespace hanoi{
     class Game
@@ -9,5 +10,6 @@ namespace hanoi{
         std::vector<Stack> stacks_;
     public:
         Game(int difficulty);
+        void getCommand(Controller &controller);
     };
 }
