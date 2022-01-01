@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "Stack.h"
 #include "Controller.h"
+#include "Disk.h"
 
 namespace hanoi{
     Game::Game(int difficulty) : difficulty_(difficulty) {
@@ -10,6 +11,7 @@ namespace hanoi{
         {
         case 1:{
             /* easy mode */
+            // future objective: use array for stacks, since they are always 3
             Stack stack1(3);
             stacks_.push_back(stack1);
             Stack stack2;
@@ -51,9 +53,7 @@ namespace hanoi{
         
 
         controller.legalMove(currentStack - 1, targetStack - 1);  
-        
-        //precisa mostrar quais os tamanhos dos discos de cada pilha
+
         goto command;
     }
-
 }

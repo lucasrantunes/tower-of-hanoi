@@ -27,4 +27,8 @@ namespace hanoi{
         disks_.pop_back();
         return disk;
     }
+
+    std::vector<Disk> Stack::stackStatus(){
+        return disks_;
+    }
 }

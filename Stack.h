@@ -15,5 +15,6 @@ namespace hanoi{
             void push_back(Disk &disk);
             Disk & peekTop();
             Disk removeTop();
+            std::vector<Disk> stackStatus();
     };
 }

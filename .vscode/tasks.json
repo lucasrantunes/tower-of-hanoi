@@ -16,6 +16,8 @@
                 "Game.cpp",
                 "-g",
                 "Controller.cpp",
+                "-g",
+                "libs/fort.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

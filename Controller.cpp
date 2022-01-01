@@ -15,7 +15,7 @@ namespace hanoi{
             if (stacks_->at(targetStack).size() > 0)
             {
                 // check if is not an attempt to put a large disk on top of a small one
-                if (stacks_->at(targetStack).peekTop().width_ > stacks_->at(currentStack).peekTop().width_)
+                if (stacks_->at(targetStack).peekTop().getWidth() > stacks_->at(currentStack).peekTop().getWidth())
                 {
                     moveDisk(currentStack, targetStack);
                 }else{
