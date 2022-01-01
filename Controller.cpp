@@ -2,20 +2,20 @@
 #include "Controller.h"
 
 namespace hanoi{
-    Controller::Controller(std::vector<Stack> *stacks){
-        stacks_ = stacks;
+    Controller::Controller(std::vector<Stack> *stacks_ptr) : stacks_ptr_(stacks_ptr) {
+        display_.setStacks(stacks_ptr);
         std::cout << "Insert the moviments or type 666 to go back to the main menu." << std::endl;
     }
     
     void Controller::legalMove(int currentStack, int targetStack){
         //  check if actual stack is not empty:
-        if (stacks_->at(currentStack).size() > 0)
+        if (stacks_ptr_->at(currentStack).size() > 0)
         {
             // check if target stack is not empty
-            if (stacks_->at(targetStack).size() > 0)
+            if (stacks_ptr_->at(targetStack).size() > 0)
             {
                 // check if is not an attempt to put a large disk on top of a small one
-                if (stacks_->at(targetStack).peekTop().getWidth() > stacks_->at(currentStack).peekTop().getWidth())
+                if (stacks_ptr_->at(targetStack).peekTop().getWidth() > stacks_ptr_->at(currentStack).peekTop().getWidth())
                 {
                     moveDisk(currentStack, targetStack);
                 }else{
@@ -30,14 +30,14 @@ namespace hanoi{
     }
 
     void Controller::moveDisk(int currentStack, int targetStack){
-        Disk disk = stacks_->at(currentStack).removeTop();
-        stacks_->at(targetStack).push_back(disk);
+        Disk disk = stacks_ptr_->at(currentStack).removeTop();
+        stacks_ptr_->at(targetStack).push_back(disk);
     }
 
     void Controller::showStatus(){
         for (int stack = 0; stack < 3; stack++)
         {
-            for (int disk = 0; disk < stacks_->at(stack).size(); stack++)
+            for (int disk = 0; disk < stacks_ptr_->at(stack).size(); stack++)
             {
                 /* code */
             }
