@@ -21,4 +21,7 @@ namespace hanoi{
     unsigned int Disk::getWidth(){
         return width_;
     }
+    fort::color Disk::getColor(){
+        return color_;
+    }
 }

@@ -9,5 +9,6 @@ namespace hanoi{
     public:
         Disk(int width);
         unsigned int getWidth();
+        fort::color getColor();
     };
 }

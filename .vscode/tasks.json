@@ -17,7 +17,9 @@
                 "-g",
                 "Controller.cpp",
                 "-g",
-                "libs/fort.c",
+                "Displayer.cpp",
+                "-g",
+                "${fileDirname}/libs/fort.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
