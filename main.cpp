@@ -5,33 +5,32 @@ using std::cin;
 using std::endl;
 using std::string;
 int main(){
-    mainMenu:
-    cout << "Choose one option:" << endl;
-    cout << "1) Start Game" << endl;
-    cout << "2) Ranking" << endl;
-    cout << "3) Exit\n" << endl;
+    while(1){
+        cout << "Choose one option:" << endl;
+        cout << "1) Start Game" << endl;
+        cout << "2) Ranking" << endl;
+        cout << "3) Exit\n" << endl;
 
-    int userInput = 0;
-    do
-    {
-        cin >> userInput;
-        switch (userInput)
+        int userInput = 0;
+        do
         {
-        case 1:{
-            hanoi::Game g(3);
-            goto mainMenu;
-            break;
-        }
-        case 2:
-            /* code */
-            break;
-        case 3:
-            return 0;
-            break;
-        default:
-            cout << "Insert a valid option.\n" << endl;
-            break;
-        }
-    } while (userInput > 3 || userInput < 1);
-    return 0;
+            cin >> userInput;
+            switch (userInput)
+            {
+            case 1:{
+                hanoi::Game g(3);
+                break;
+            }
+            case 2:
+                /* code */
+                break;
+            case 3:
+                return 0;
+                break;
+            default:
+                cout << "Insert a valid option.\n" << endl;
+                break;
+            }
+        } while (userInput > 3 || userInput < 1);
+    }
 }

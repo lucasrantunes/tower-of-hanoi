@@ -13,5 +13,6 @@ namespace hanoi{
         Controller(std::vector<Stack> *stacks_ptr, int difficulty);
         void moveDisk(int currentStack, int targetStack);
         void legalMove(int currentStack, int targetStack);
+        void getCommand(Controller &controller);
     };
 }

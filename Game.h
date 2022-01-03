@@ -10,6 +10,5 @@ namespace hanoi{
         std::vector<Stack> stacks_;
     public:
         Game(int difficulty);
-        void getCommand(Controller &controller);
     };
 }

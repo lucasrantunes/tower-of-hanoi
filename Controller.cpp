@@ -8,6 +8,34 @@ namespace hanoi{
         Displayer displayer(stacks_ptr_, difficulty_);
     }
     
+    void Controller::getCommand(Controller &controller){
+        while(1){
+            int currentStack = 0;
+            do
+            {
+                std::cout << "Actual stack (1-3): ";
+                std::cin >> currentStack;
+                if (currentStack == 666)
+                {
+                    return;
+                }
+            } while ( !(currentStack >= 1 && currentStack <= 3) );
+
+            int targetStack;
+            do
+            {
+                std::cout << "Target stack (1-3): ";
+                std::cin >> targetStack;  
+                if (targetStack == 666)
+                {
+                    return;
+                }
+            } while ( !(targetStack >= 1 && targetStack <= 3) );
+            
+            legalMove(currentStack - 1, targetStack - 1);  
+        }
+    }
+
     void Controller::legalMove(int currentStack, int targetStack){
         //  check if actual stack is not empty:
         if (stacks_ptr_->at(currentStack).size() > 0)
