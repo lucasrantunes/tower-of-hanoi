@@ -9,6 +9,6 @@ namespace hanoi{
     private:
         std::string diskSpaces(int times);
     public:
-        Displayer(std::vector<Stack> *stacks_ptr);
+        Displayer(std::vector<Stack> *stacks_ptr, int difficulty);
     };
 }

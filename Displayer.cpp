@@ -6,25 +6,24 @@
 #include "Stack.h"
 
 namespace hanoi{
-    Displayer::Displayer(std::vector<Stack> *stacks_ptr){
+    Displayer::Displayer(std::vector<Stack> *stacks_ptr, int difficulty){
         fort::char_table table;
         table.set_border_style(FT_SOLID_ROUND_STYLE);
         table.set_cell_text_align(fort::text_align::center);
         table << fort::header                                             
         << "Stack 1" << "Stack 2" << "Stack 3" << fort::endr;
-        table.set_cell_min_width(10);
-        for (int s = 0; s < 3; s++)
+
+        for (int s = 0; s < difficulty; s++)
         {
             if (stacks_ptr->at(s).size() > 0)
             {
                 std::vector<Disk> disks = stacks_ptr->at(s).stackStatus();
-                for (int r = 0; r < stacks_ptr->size(); r++)
+                for (int r = 0; r < disks.size(); r++)
                 {
                     table[stacks_ptr->size()-r][s].set_cell_content_bg_color(disks[r].getColor());
                     table[stacks_ptr->size()-r][s] = diskSpaces(disks[r].getWidth());
                 }
             }
-            
             table << fort::endr;
         }
         std::cout << table.to_string() << std::endl;

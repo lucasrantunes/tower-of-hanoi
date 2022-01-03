@@ -3,9 +3,9 @@
 #include "Displayer.h"
 
 namespace hanoi{
-    Controller::Controller(std::vector<Stack> *stacks_ptr) : stacks_ptr_(stacks_ptr) {
+    Controller::Controller(std::vector<Stack> *stacks_ptr, int difficulty) : stacks_ptr_(stacks_ptr), difficulty_(difficulty) {
         std::cout << "Insert the moviments or type 666 to go back to the main menu." << std::endl;
-        Displayer displayer(stacks_ptr_);
+        Displayer displayer(stacks_ptr_, difficulty_);
     }
     
     void Controller::legalMove(int currentStack, int targetStack){
@@ -33,7 +33,7 @@ namespace hanoi{
     void Controller::moveDisk(int currentStack, int targetStack){
         Disk disk = stacks_ptr_->at(currentStack).removeTop();
         stacks_ptr_->at(targetStack).push_back(disk);
-        Displayer displayer(stacks_ptr_);
+        Displayer displayer(stacks_ptr_, difficulty_);
     }
 
 }
