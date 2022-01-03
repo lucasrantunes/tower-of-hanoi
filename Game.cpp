@@ -7,24 +7,12 @@
 
 namespace hanoi{
     Game::Game(int difficulty) : difficulty_(difficulty) {
-        switch (difficulty)
-        {
-        case 1:{
-            /* easy mode */
-            // future objective: use array for stacks, since they are always 3
-            Stack stack1(3);
-            stacks_.push_back(stack1);
-            Stack stack2;
-            stacks_.push_back(stack2);
-            Stack stack3;
-            stacks_.push_back(stack3);
-            Controller controller(&stacks_);
-            getCommand(controller);
-            break;
-        }
-        default:
-            break;
-        }
+        Stack stack1(difficulty_);
+        stacks_.push_back(stack1);
+        Stack stack;
+        stacks_.push_back(stack); stacks_.push_back(stack);
+        Controller controller(&stacks_, difficulty_);
+        getCommand(controller);
     }
 
     void Game::getCommand(Controller &controller){

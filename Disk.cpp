@@ -14,7 +14,7 @@ namespace hanoi{
             color_ = fort::color::light_red;
             break;
         default:
-            color_ = fort::color::default_color;
+            color_ = fort::color::magenta;
             break;
         }        
     }

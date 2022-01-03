@@ -18,7 +18,7 @@ int main(){
         switch (userInput)
         {
         case 1:{
-            hanoi::Game g(1);
+            hanoi::Game g(3);
             goto mainMenu;
             break;
         }
