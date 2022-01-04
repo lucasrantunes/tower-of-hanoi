@@ -13,15 +13,15 @@ namespace hanoi{
         table << fort::header                                             
         << "Stack 1" << "Stack 2" << "Stack 3" << fort::endr;
 
-        for (int s = 0; s < difficulty; s++)
+        for (int s = 0; s < 3; s++)
         {
             if (stacks_ptr->at(s).size() > 0)
             {
                 std::vector<Disk> disks = stacks_ptr->at(s).stackStatus();
                 for (int r = 0; r < disks.size(); r++)
                 {
-                    table[stacks_ptr->size()-r][s].set_cell_content_bg_color(disks[r].getColor());
-                    table[stacks_ptr->size()-r][s] = diskSpaces(disks[r].getWidth());
+                    table[difficulty-r][s].set_cell_content_bg_color(disks[r].getColor());
+                    table[difficulty-r][s] = diskSpaces(disks[r].getWidth());
                 }
             }
             table << fort::endr;
